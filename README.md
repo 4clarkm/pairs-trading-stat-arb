@@ -1,1 +1,1 @@
-# pairs-trading-stat-arb
+# Pairs Trading & Statistical Arbitrage
