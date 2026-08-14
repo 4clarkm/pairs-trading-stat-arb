@@ -11,12 +11,11 @@ from strategy import load_data, compute_signals, compute_returns, compute_metric
 # ── Page config ──────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="V/MA Pairs Trading Dashboard",
-    page_icon="📈",
     layout="wide"
 )
 
 # ── Header ────────────────────────────────────────────────────────────────────
-st.title("📈 V/MA Statistical Arbitrage Dashboard")
+st.title("V/MA Statistical Arbitrage Dashboard")
 st.markdown(
     "A market neutral pairs trading strategy exploiting the cointegrated "
     "relationship between Visa (V) and Mastercard (MA). Adjust parameters "
@@ -231,6 +230,6 @@ st.divider()
 
 # ── Footer ────────────────────────────────────────────────────────────────────
 st.markdown(
-    "Built by Mason Clark - UW-Madison Economics & Mathematics | "
+    "Built by Mason Clark - UW-Madison Qauntitative Economics & Mathematics Student| "
     "[GitHub](https://github.com/4clarkm/pairs-trading-stat-arb)"
 )
