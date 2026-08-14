@@ -5,6 +5,10 @@ This project represents my first serious attempt at building and backtesting a q
 
 ---
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://mclark-pairs-trading.streamlit.app/)
+
+**[Live Dashboard](https://mclark-pairs-trading.streamlit.app/)** | [GitHub Repository](https://github.com/4clarkm/pairs-trading-stat-arb)
+
 ## Background and Motivation
 
 I chose pairs trading as my entry point into quantitative finance because it sits at the intersection of econometrics, statistics, and market microstructure, all areas I find genuinely interesting. The strategy is market neutral by construction, meaning it does not bet on the market going up or down but instead exploits temporary mispricings between two highly related assets. This makes it a fundamentally different kind of strategy from buy-and-hold or momentum investing, and one that has real portfolio value precisely because of its low correlation to the broader market.
