@@ -172,6 +172,21 @@ fig3, (ax3, ax4) = plt.subplots(2, 1, figsize=(14, 8), sharex=True)
 
 returns.cumsum().plot(ax=ax3, color="steelblue", linewidth=1.5, label="Strategy")
 spy_returns.cumsum().plot(ax=ax3, color="darkorange", linewidth=1.5, label="SPY")
+
+# Shade key stress periods
+ax3.axvspan(pd.Timestamp("2020-02-01"), pd.Timestamp("2020-04-30"),
+            alpha=0.15, color="green", label="COVID Crash")
+ax3.axvspan(pd.Timestamp("2022-01-01"), pd.Timestamp("2022-12-31"),
+            alpha=0.15, color="purple", label="Rate Shock 2022")
+
+# Annotations
+ax3.annotate("COVID\n+10.9%", xy=(pd.Timestamp("2020-03-01"), 
+             returns.cumsum().loc["2020-03-01"]),
+             fontsize=8, color="green", fontweight="bold")
+ax3.annotate("Rate Shock\n+5.3%", xy=(pd.Timestamp("2022-06-01"),
+             returns.cumsum().loc["2022-06-01"]),
+             fontsize=8, color="purple", fontweight="bold")
+
 ax3.axhline(0, color="black", linewidth=0.8, linestyle="--")
 ax3.set_title("Cumulative Log Returns", fontsize=12)
 ax3.set_ylabel("Cumulative Log Return")

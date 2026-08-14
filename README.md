@@ -1,7 +1,7 @@
 # Pairs Trading & Statistical Arbitrage
 ### V/MA Cross-Sectional Mean Reversion Strategy
 
-This project represents my first serious attempt at building and backtesting a quantitative trading strategy from scratch. The goal was not just to make something that looked good on paper, but to build something rigorous, with proper statistical testing, realistic transaction costs, and honest evaluation of limitations. Every design decision was made with economic reasoning first, data second.
+This project represents my first serious attempt at building and backtesting a quantitative trading strategy from scratch. The goal was not just to make something that looked good on paper, but to build something rigorous, with proper statistical testing, realistic transaction costs, and honest evaluation of limitations. There is also an interactive dashboard hosted by streamlit below to help visualize some of the final results. on
 
 ---
 
@@ -49,6 +49,15 @@ The pairs signal is inactive approximately 65% of trading days. We tested four a
 | Hold MA when idle | 22.32% | 0.96 | -32.99% |
 | Hold MA entire period | 19.31% | 0.72 | -52.76% |
 | S&P 500 (SPY) | 13.17% | 0.77 | -41.12% |
+
+### Why This Strategy Shines During Market Crises
+The most important property of a market neutral strategy is not its average return, it is its behavior when markets break down. The COVID crash and 2022 rate shock results illustrate this directly.
+
+During COVID (February - April 2020), consumer spending collapsed overnight. Both Visa and Mastercard were hit by the same demand shock simultaneously, keeping the spread stable while long only portfolios lost 30%+ in weeks. The strategy returned +10.9% with a 3.90 Sharpe and only -1.83% max drawdown during one of the fastest selloffs in market history.
+
+During the 2022 rate shock, rising interest rates compressed equity valuations across the board. Again both payment networks faced those issues, preserving the spread relationship while the S&P 500 fell roughly 20%. The strategy returned +5.33% for the year.
+
+This is not luck, it is the structural consequence of trading two economically identical businesses. Systemic shocks affect both sides of the trade equally and cancel out, leaving only spread risk which is small and mean reverting by design.
 
 ### Stress Test Highlights
 The strategy's most important property is its behavior during market crises:
