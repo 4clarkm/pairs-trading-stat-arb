@@ -47,7 +47,7 @@ entry_threshold = st.sidebar.slider(
 idle_choice = st.sidebar.selectbox(
     "Idle Capital Deployment",
     options=["cash", "ma", "v", "spy"],
-    index=1,
+    index=3,
     format_func=lambda x: {
         "cash": "Hold Cash",
         "ma": "Hold Mastercard (MA)",
