@@ -91,6 +91,10 @@ with st.spinner("Running strategy..."):
     )
     metrics = compute_metrics(returns)
 
+# Calculate actual returns during stress periods dynamically
+covid_return = returns.loc["2020-02-01":"2020-04-30"].sum()
+rate_shock_return = returns.loc["2022-01-01":"2022-12-31"].sum()
+
 # ── Metrics panel ─────────────────────────────────────────────────────────────
 st.subheader("Performance Metrics")
 col1, col2, col3, col4, col5 = st.columns(5)
@@ -174,10 +178,12 @@ returns.cumsum().plot(ax=ax3, color="steelblue", linewidth=1.5, label="Strategy"
 spy_returns.cumsum().plot(ax=ax3, color="darkorange", linewidth=1.5, label="SPY")
 
 # Shade key stress periods
-ax3.axvspan(pd.Timestamp("2020-02-01"), pd.Timestamp("2020-04-30"),
-            alpha=0.15, color="green", label="COVID Crash")
-ax3.axvspan(pd.Timestamp("2022-01-01"), pd.Timestamp("2022-12-31"),
-            alpha=0.15, color="purple", label="Rate Shock 2022")
+ax3.annotate(f"COVID\n{covid_return:.1%}", xy=(covid_date,
+             returns.cumsum().loc[covid_date] + 0.15),
+             fontsize=8, color="green", fontweight="bold")
+ax3.annotate(f"Rate Shock\n{rate_shock_return:.1%}", xy=(rate_date,
+             returns.cumsum().loc[rate_date] + 0.15),
+             fontsize=8, color="purple", fontweight="bold")
 
 # Annotations
 # Annotations
