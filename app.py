@@ -178,22 +178,19 @@ returns.cumsum().plot(ax=ax3, color="steelblue", linewidth=1.5, label="Strategy"
 spy_returns.cumsum().plot(ax=ax3, color="darkorange", linewidth=1.5, label="SPY")
 
 # Shade key stress periods
+ax3.axvspan(pd.Timestamp("2020-02-01"), pd.Timestamp("2020-04-30"),
+            alpha=0.15, color="green", label="COVID Crash")
+ax3.axvspan(pd.Timestamp("2022-01-01"), pd.Timestamp("2022-12-31"),
+            alpha=0.15, color="purple", label="Rate Shock 2022")
+
+# Dynamic annotations
+covid_date = returns.cumsum().index.asof(pd.Timestamp("2020-03-01"))
+rate_date = returns.cumsum().index.asof(pd.Timestamp("2022-06-01"))
+
 ax3.annotate(f"COVID\n{covid_return:.1%}", xy=(covid_date,
              returns.cumsum().loc[covid_date] + 0.15),
              fontsize=8, color="green", fontweight="bold")
 ax3.annotate(f"Rate Shock\n{rate_shock_return:.1%}", xy=(rate_date,
-             returns.cumsum().loc[rate_date] + 0.15),
-             fontsize=8, color="purple", fontweight="bold")
-
-# Annotations
-# Annotations
-covid_date = returns.cumsum().index.asof(pd.Timestamp("2020-03-01"))
-rate_date = returns.cumsum().index.asof(pd.Timestamp("2022-06-01"))
-
-ax3.annotate("COVID\n+10.9%", xy=(covid_date,
-             returns.cumsum().loc[covid_date] + 0.25),
-             fontsize=8, color="green", fontweight="bold")
-ax3.annotate("Rate Shock\n+5.3%", xy=(rate_date,
              returns.cumsum().loc[rate_date] + 0.15),
              fontsize=8, color="purple", fontweight="bold")
 
@@ -255,6 +252,6 @@ st.divider()
 
 # ── Footer ────────────────────────────────────────────────────────────────────
 st.markdown(
-    "Built by Mason Clark - UW-Madison Qauntitative Economics & Mathematics Student| "
+    "Built by Mason Clark - UW-Madison Quantitative Economics & Mathematics | "
     "[GitHub](https://github.com/4clarkm/pairs-trading-stat-arb)"
 )
