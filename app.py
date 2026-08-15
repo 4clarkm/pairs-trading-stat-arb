@@ -188,10 +188,10 @@ covid_date = returns.cumsum().index.asof(pd.Timestamp("2020-03-01"))
 rate_date = returns.cumsum().index.asof(pd.Timestamp("2022-06-01"))
 
 ax3.annotate(f"COVID\n{covid_return:.1%}", xy=(covid_date,
-             returns.cumsum().loc[covid_date] + 0.15),
+             returns.cumsum().loc[covid_date] + 0.25),
              fontsize=8, color="green", fontweight="bold")
 ax3.annotate(f"Rate Shock\n{rate_shock_return:.1%}", xy=(rate_date,
-             returns.cumsum().loc[rate_date] + 0.15),
+             returns.cumsum().loc[rate_date] + 0.25),
              fontsize=8, color="purple", fontweight="bold")
 
 ax3.axhline(0, color="black", linewidth=0.8, linestyle="--")
