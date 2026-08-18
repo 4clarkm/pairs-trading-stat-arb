@@ -81,6 +81,10 @@ def get_data():
 with st.spinner("Loading price data..."):
     prices = get_data()
 
+if prices.empty or len(prices) == 0:
+    st.error("Failed to load price data. Please refresh the page.")
+    st.stop()
+
 # ── Run strategy ──────────────────────────────────────────────────────────────
 with st.spinner("Running strategy..."):
     signals, zscore, spread, rolling_beta, trades = compute_signals(
