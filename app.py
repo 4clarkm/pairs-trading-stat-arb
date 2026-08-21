@@ -82,7 +82,7 @@ with st.spinner("Loading price data..."):
     prices = get_data()
 
 if prices.empty or len(prices) == 0:
-    st.error("Failed to load price data. Please refresh the page.")
+    st.error("Failed to load price data. Please refresh the page, and clear cache with ctrl + c.")
     st.stop()
 
 # ── Run strategy ──────────────────────────────────────────────────────────────
